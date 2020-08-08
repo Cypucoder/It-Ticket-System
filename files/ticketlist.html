@@ -1,0 +1,41 @@
+<!-- x is the pointer for the sql return. Basically, whatever sql is used in the controller is what is returned. From there use {{x.(variable in database)}} to get data -->
+<div>
+    <div class="col-xs-3">
+        <input type="input" ng-model="search" placeholder="search">
+        </div>
+    <div class="col-xs-3">
+        <select style="width: 170px;" class="form-control" id="Building" ng-model="EventFilt.fBuilding" ><!--ng-init="EventFilt.fBuilding=building"-->
+                    <option value="">--Building--</option><!--*-->
+                    <option value="Central">Central</option>
+                    <option value="West River">West River</option>
+                    <option value="North">North</option>
+                    <option value="South">South</option>
+                    <option value="Keystone">Keystone-Lagrange</option>
+                    <option value="Bookmobile">Bookmobile</option>
+                    <option value="">--None--</option><!--None-->                    
+                </select> </div>
+    <div class="col-xs-3">
+        <select style="width: 170px;" class="form-control" id="Building" ng-init="EventFilt.Open ='OpenSa Ank'"ng-model="EventFilt.Open" ><!--ng-init="EventFilt.fBuilding=building"-->
+                    <option value="OpenSa Ank">Open Tickets</option><!--*-->
+                    <option value="ClosedSa Ank">Closed Tickets</option><!--None-->
+                    <option value="">All</option><!--the "Sa Ank" bit is to make the values very unique for finding them later-->                    
+                </select> </div>
+    <h1>{{x.building}}</h1>
+        <table class="table table-striped">
+        <tr>
+            <td>Issue</td>
+            <td>Email</td>
+            <td>Department</td>
+            <td>Date Time</td>
+            <td>Link</td>
+        </tr>
+            <!--ng-repeat allows for autogeneration of tables -->
+        <tr ng-repeat="x in data|filter:EventFilt.fBuilding|filter:EventFilt.Open|filter:search">
+            <td><div style="max-width: 200px; overflow: hidden">{{x.ProblemDesc}}</div></td>
+            <td>{{x.User}}</td>
+            <td>{{x.Department}}</td>
+            <td>{{x.ReadTime}}</td>
+            <td><a ng-href="#ticket/{{x.idTicket}}">(Ticket)</a></td>
+        </tr>
+        </table>
+</div>

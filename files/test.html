@@ -1,0 +1,24 @@
+<div>
+        
+            <div ng-controller="data_get">
+        <table class="table table-striped">
+        <tr>
+            <td>Email</td>
+            <td>Building</td>
+            <td>Department</td>
+            <td>Inventory</td>
+            <td>Date Time</td>
+            <td>Issue</td>
+            <td>Is resolved?</td>
+        </tr>
+        <tr ng-repeat="x in data">
+            <td>{{x.User}}</td>
+            <td>{{x.Building}}</td>
+            <td>{{x.Dept}}</td>
+            <td>{{x.Inventory}}</td>
+            <td>{{x.Date_Time}}</td>
+            <td>{{x.ProblemDesc}}</td>
+            <td>{{x.isResolved}}</td>
+        </tr>
+        </table>
+</div>

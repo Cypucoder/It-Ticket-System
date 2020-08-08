@@ -1,0 +1,102 @@
+
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <title>Technology Dept. Service Request Form 1.1</title>
+</head>	
+
+<body>
+
+
+
+<form action="http://10.66.5.27/EPL/PHP/ITSystem/IT_PHP.php" method="POST">
+
+<!-- Table used to align input fields and labels. -->
+<center>
+<img src="img/ItLogo.gif" border="0" width="739" height="48" alt="IT Logo" align="center">
+
+<br><br><br><p><font face="arial">This is the Service Request form supplied by the <b><font color="#000099">Elyria Public Library</font></b> Technology Department.  
+When you<br>submit the form the IT Department staff will recieve an email listing the problem(s) cited on the form.  Please fill it out as completely<br>
+and accurately as possible.</font></p>
+
+<table>
+
+<tr>
+
+<td align="left"><b><font face="Times New Roman" size=4>Location:</font></b></td>
+
+<td><select NAME="Loc">
+			   <option VALUE="Not Specified">Select your location		
+               <option VALUE="Bookmobile">Bookmobile
+			   <option VALUE="Central">Central
+               <option VALUE="Keystone">Keystone
+			   <option VALUE="North Branch">North Branch
+			   <option VALUE="South Branch">South Branch
+			   <option VALUE="West River">West River
+			   
+			   
+</select></td>
+
+<tr>
+
+<td align="left"><b><font face="Times New Roman" size="4">Department:</font></b></td>
+<td><select NAME="Dep">
+			   <option VALUE="Not Specified">Select your department		
+               <option VALUE="Administration">Administration
+			   <option VALUE="Audio Visual">Audio Visual
+			   <option value="Bookmobile">Bookmobile
+			   <option VALUE="Childrens">Children's 
+			   <option VALUE="Circulation">Circulation
+			   <option VALUE="Clerk Treasurer">Clerk Treasurer
+			   <option value="Outreach">Outreach
+			   <option value="Project Read">Project Read
+			   <option VALUE="Public Relations">Public Relations
+			   <option VALUE="Reference">Reference
+			   <option VALUE="Technology">Technology
+			   <option VALUE="TSD">TSD
+</select></td>
+
+</table>
+
+<br><b><font face="Times New Roman" size=4>Problem Description:</font></b><br>
+
+
+<i><font face="Arial">Enter a detailed description of the problem or request.
+    <br>Please include as much information as possible.</font></i><br>
+ <textarea name="PleDes" rows=5 cols=50></textarea>
+<br><br>
+
+<HR color="#0033CC" size="2"/>
+<br><br><b><font face="Times New Roman" size=4>User Information:</font></b><br><br>
+
+<table>
+<tr>
+ <td align=right>First Name:</td>
+ <td align=left><input type=text name=FNa></td>
+</tr>
+<tr>
+ <td align=right>Last Name:</td>
+ <td align=left><input type=text name=LNa></td>
+</tr>
+<tr>
+ <td align=right>Email Address:</td>
+ <td align=left><input type=text name=eMai></td>
+</tr>
+<tr>
+ <td align=right>Phone:</td>
+ <td align=left><input type=text name=Pho></td>
+</tr>
+</table>
+<!--<input type="hidden" name="email_it" value="it@elyrialibrary.org">
+<input type="hidden" name="TGorder" value="location,dept,fname,lname,phone,email,problem_description">-->
+<input type=submit value="Submit">
+<input type=reset value="Clear">
+    </center>
+</form>
+
+<br><br><hr color="#0033CC" size="2">
+<Center><a href="http://elyrialibrary.org/stafflinks/">Home</a>
+<br><br><font face="Arial" color="navy" size="2">©2006 Elyria Public Library Technology Department. All rights reserved.</font></Center>
+</body>
+</html>

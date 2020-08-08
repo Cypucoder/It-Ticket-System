@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!--
+    ~Change this style sheet to change the look of the site. The current theme is darkly. 
+    ~Look up Bootstrap Themes on google or go to "http://getbootstrap.com/customize/" to create your own
+    -->
+    <link rel="stylesheet" href="./css/IT.css">
+    
+    <!-- needed files for using angular, html5, jquery, and bootstrap-->
+    <!-- * Info on the tools used: 
+            ~ Angular is used to display data from the database. Instead of typing in a full sql query whenever we need something, we can type in smaller things like Users.name to return data. 
+            ~ Bootstrap is a css generator... thing... Basically it makes everything look nice with little effort. 
+            ~ app.js points to the angular application used to return data
+-->
+    
+    <!--The following is needed for angular data return compatibility between all browsers. Even though some of it is commented out, it's actually being read by IE or another browser. -->
+    
+    <!--[if (IE)]><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
+<![endif]-->
+    
+    <!--[if !(IE)]><!-->  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+<!--<![endif]-->
+    
+<!--http://stackoverflow.com/questions/9900311/how-do-i-target-only-internet-explorer-10-for-certain-situations-like-internet-e -->    
+   <script>
+    //https://en.wikipedia.org/wiki/Conditional_comment
+    /*@cc_on
+      @if (@_jscript_version == 10)
+          document.write('<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"/>');
+      @end
+    @*/
+       //Used for detecting IE
+       /*if (Object.hasOwnProperty.call(window, "ActiveXObject") && !window.ActiveXObject) {
+        window.location="http://elyrialibrary.org/redirect.html";
+}*/
+</script>
+    
+    <!-- Needed for html compatibility -->
+    <script src="html5shiv/3.7.3/html5shiv.js"></script>
+    
+    <!--JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!--Bootstrap is needed as a simple css solution -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    
+    <!--Angular route and angular messages are tools for better data returning. Route is used for "one page" websites. Angular Messages is used for validation -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+    
+    <!-- Socket.io will be used for realtime data returning such as live updating of tickets and notifications. It can also be used for login.  -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    
+    <!-- Code js is used for defining how data is returned. Turning multiple sql statements and more into something as simple as {{x.variable}} -->
+    <script src="./code.js"></script>
+    
+    <!--CSS for sidebar -->
+    <!--<link href="./css/simple-sidebar.css" rel="stylesheet">-->
+  
+</head>
+    <!--myApp defines the web application information -->
+<body ng-app="myApp">
+    
+    <!--Navbar -->
+<nav role="navigation" class="navbar navbar-default" style="position: fixed; top: 0; width: 100%; z-index: 5;">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#Home" class="navbar-brand">ITRequests</a>
+            </div>
+            <!-- Collection of nav links and other content for toggling -->
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#" id="NavN">Home</a></li>
+                    <!--<li class="active"><a href="#/central" id="NavC">Central</a></li>
+                    <li><a href="#/north" id="NavN">North</a></li>
+                    <li><a href="#/south" id="NavS">South</a></li>
+                    <li><a href="#/wr" id="NavWR">West River</a></li>
+                    <li><a href="#/keystone" id="NavK">Keystone</a></li>
+                    <li><a href="#/bookmobile" id="NavB">Bookmobile</a></li>-->
+                    <!--<li><a href="#/mp" id="NavB">My Projects</a></li>-->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    
+    <!--Sidebar -->
+<div id="wrapper">
+    <div id="left" class="col-md-3"></div>
+        <!--<div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <p>Issue type:</p>
+                </li>
+                <li>
+                    <a href="#">Computer</a>
+                </li>
+                <li>
+                    <a href="#">Printer</a>
+                </li>
+                <li>
+                    <a href="#">Networking</a>
+                </li>
+                <li>
+                    <a href="#">Server</a>
+                </li>
+                <li>
+                    <a href="#">User Error</a>
+                </li>
+                <li>
+                    <a href="#">Deep Freeze</a>
+                </li>
+                <li>
+                    <a href="#">Cassie</a>
+                </li>
+                <li>
+                    <a href="#">Sirsi</a>
+                </li>
+            </ul>
+        </div>
+        </div>-->
+    
+    <!--Defines the location for dynamic page loading -->
+    <div id="main" class="col-md-6">
+        <div style="margin-top:70px;"></div> 
+        <div ng-view></div>
+            </div>
+    </div>
+
+    <!--left and right div's are used as space modifiers. If the page shrinks or grows, the important stuff or sidebar will grow or shrink to stay centered -->
+    <div id="right" class="col-md-3">
+
+    </div>
+    
+  
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+</body>
+</html>

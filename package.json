@@ -1,0 +1,20 @@
+{
+  "name": "epl_systems_base",
+  "version": "1.0.0",
+  "description": "Internal systems base for Elyria Public library",
+  "main": "Server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Benjamin Cuson",
+  "license": "ISC",
+  "dependencies" : {
+        "express": "*", 
+        "socket.io": "*",
+        "mysql": "*",
+        "body-parser": "*",
+        "angular-route": "*",
+        "nodemailer": "~0.7.1"
+    }
+}

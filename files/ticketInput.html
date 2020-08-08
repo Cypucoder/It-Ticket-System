@@ -1,0 +1,104 @@
+<div>
+    <ng-form id="ticket" action="">
+
+        
+          <table>
+        <tr><td>Issue:</td><td><div style="border-style: solid; padding: 20px; margin: 20px; max-width: 700px; background: white; color: black; "><textarea ng-model="ticket.fIssueDesc"></textarea></div></td>
+            <td>Solution:</td><td><div style="border-style: solid; padding: 20px; margin: 20px; max-width: 700px; background: white; color: black; ">{{x.Resolution}}</div></td>
+</tr>
+        </table>
+        
+        <div class="col-md-6">      
+<table class="table table-striped">
+        <tr>
+            <td>Building: </td><td>
+            <select style="width: 170px;" class="form-control" id="sel1" ng-model="ticket.fLocation">
+                    <option value="Central">Central</option>
+                    <option value="North">North</option>
+                    <option value="South">South</option>
+                    <option value="West River">West River</option>
+                    <option value="Keystone">Keystone</option>
+                    <option value="Bookmobile">Bookmobile</option>
+                </select></td>
+        </tr>
+        <tr>
+            <td>Department: </td><td><select style="width: 170px;" class="form-control" id="department" ng-model="ticket.fDept">
+                    <option value="Other">Other</option>
+                    <option value="Circulation">Circulation</option>
+                    <option value="Reference">Reference</option>
+                    <option value="Youth Services">Youth Services</option>
+                    <option value="Public Relations">Public Relations</option>
+                    <option value="Maintenance">Maintenance</option>
+                    <option value="Technical Service">Technical Service</option>
+                    
+                </select></td>
+        </tr>
+        <tr>
+            <td>Inventory: </td><td><input ng-model="ticket.fInventory" name="Inv">{{x.Inventory}}</td>
+        </tr>
+        <tr>
+            <td>Date: </td><td>{{x.ReadTime}}</td>
+        </tr>
+        </table>
+      </div>
+  <div class="col-md-6">      
+<table class="table table-striped">
+        <tr>
+            <td>Email: </td><td><input ng-model="ticket.fEmail" name="us">{{x.fEmail}}</td>
+        </tr>
+        <tr>
+            <td>First: </td><td><input ng-model="ticket.fFirst" name="fir">{{x.fName}}</td>
+        </tr>
+        <tr>
+            <td>Last: </td><td><input ng-model="ticket.fLast" name="la">{{x.lName}}</td>
+        </tr>
+        <tr>
+            <td>Completed on: </td><td>{{x.FinTime}}</td>
+        </tr>
+        </table>
+      </div>
+
+    
+    
+        <input type="hidden" ng-model="ticket.fTicketId" name="fTicketId" ng-init="ticket.fTicketId=fTicketId"> 
+        <table class="table table-striped">
+            <tr>
+                <td></td>
+                <!--ng-init="ticket.fSolution='x.Resolution'"-->
+                <!--<input type="text" ng-model="ticket.fInventory" id="inventory" ng-init="ticket.fInventory= '0'" />-->
+                <td><textarea ng-model="ticket.fSolution" id="fSolution" form="ticket" placeholder="Solution?" maxlength="500" rows="10" cols="50" ng- style="resize:none;"></textarea></td>
+            </tr>
+            <tr><td>Inventory Tag:  </td> <td><input type="text" ng-model="ticket.fInventory" id="inventory" ng-init="ticket.fInventory= fInventory" readonly/> </td></tr>
+            <tr>  
+                <td>
+                    <div class="radio">
+                        <label><input id="fIsResolved" type="radio" name="fIsResolved" ng-model="ticket.fIsResolved" ng-value="'OpenSa Ank'">Not resolved</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="radio">
+                        <label><input id="fIsResolved" type="radio" name="fIsResolved" ng-model="ticket.fIsResolved" ng-value="'ClosedSa Ank'">Resolved</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>use: yyyy-mm-dd</td>
+                <td>
+                    <!--<input type="text" ng-model="ticket.fDateComplete" id="fDateComplete"/>-->
+                     <div ng-controller="Datepicker">
+            
+             <div class="col-md-6">
+            <p class="input-group">
+              <input type="date" class="form-control" datepicker-popup ng-model="ticket.fDateComplete" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" id="fDateComplete"/>
+              <!--<span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>-->
+            </p>
+        </div>
+    </div>
+                </td>
+            </tr>
+            <tr><td><input type="submit" ng-click="newTicket(ticket); redirect();" ng-model="ticket.ticketSend" id="send"/></td><td></td></tr>
+        </table>        
+    </ng-form>
+</div>

@@ -1,0 +1,28 @@
+<div ng-controller="data_MP">
+<h1>Please Submit Your Project</h1>
+<!--    <ng-form id="ticket" action="">
+        <input type="text" ng-model="ticket.User"/><br/>
+        <input type="text" ng-model="ticket.Status"/><br/>
+        <input type="submit" ng-click="addTicket(ticket)" ng-model="ticket.ticketSend"/>
+    </ng-form> -->
+    
+    
+    <textarea ng-model="ticket.fIssueDesc" id="issue" form="ticket"> Please describe the problem... </textarea><br/>    
+    <ng-form id="ticket" action="">
+        <label for="email">Email: </label>
+        <input type="text" ng-model="ticket.fEmail" id="email"/><br/>
+        <label for="phone">Phone: </label>
+        <input type="text" ng-model="ticket.fPhone" id="phone"/><br/>
+        <label for="fName">First Name: </label>
+        <input type="text" ng-model="ticket.fFirst" id="fName"/><br/>
+        <label for="lName">Last Name: </label>
+        <input type="text" ng-model="ticket.fLast" id="lName"/><br/>
+        <label for="location">Location: </label>
+        <input type="text" ng-model="ticket.fLocation" id="location"/><br/>
+        <label for="department">Department: </label>
+        <input type="text" ng-model="ticket.fDept" id="department"/><br/>
+        <label for="inventory">Inventory Tag: </label>
+        <input type="text" ng-model="ticket.fInventory" id="inventory"/><br/>
+        <input type="submit" ng-click="addTicket(ticket)" ng-model="ticket.ticketSend" id="send"/>
+    </ng-form>
+</div>
